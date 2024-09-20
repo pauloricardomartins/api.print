@@ -5,10 +5,9 @@
     <script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.6.0/dist/echo.iife.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"></script>
     <script>
-        // Enable pusher logging - don't include this in production
         Pusher.logToConsole = true;
         window.Pusher = Pusher;
-        var accessToken = '12|ukRfMVwyVlhnwya0w0vYHAU6iWAsmjUIEJnzOkrb371e6f53';
+        var accessToken = '6|WULrRZpizaWVV0HGh5jJXLi07wxF88jOqomCZHax1ef87d6f';
 
         axios.defaults.baseURL = 'http://api.print.test';
         axios.interceptors.request.use(function (config) {
@@ -40,9 +39,10 @@
             },
         });
 
-        Echo.private(`App.Models.User.1`)
-            .listen('MyEvent', (e) => {
+        Echo.private(`stores.1`)
+            .listen('OrderConfirm', (e) => {
                 console.log(e);
+                alert(e.id)
             });
     </script>
 </head>
